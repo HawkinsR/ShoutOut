@@ -30,4 +30,4 @@ jobs:
       with:
         context:  ./ShoutOut.API/ShoutOut.API/
         push: true
-        tags: hawkinsr/shoutout:latest
+        tags: hawkinsr/shoutout.api:latest

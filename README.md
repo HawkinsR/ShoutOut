@@ -12,8 +12,9 @@ An anonymous platform that allows Associates and Revature employees to offer enc
 *Please contact Richard Hawkins for the database password*
 
 ###Container Registry
--   Registry Name: ShoutOutRegistry
--   Server: shoutoutregistry.azurecr.io
+-   Relevent images are available on DockerHub
+  - hawkinsr/shoutout.api
+  - hawkinsr/shoutout.ui
 
 ##Repository Contents
 -   ShoutOut.API : .NET project
