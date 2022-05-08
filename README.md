@@ -14,3 +14,11 @@ An anonymous platform that allows Associates and Revature employees to offer enc
 ###Container Registry
 -   Registry Name: ShoutOutRegistry
 -   Server: shoutoutregistry.azurecr.io
+
+
+
+
+
+##Repository Contents
+-   ShoutOut.API : .NET project
+-   ShoutOut.UI : Angular Project
