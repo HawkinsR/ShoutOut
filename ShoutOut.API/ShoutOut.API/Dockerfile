@@ -1,20 +1,11 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 80
-EXPOSE 443
-
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ShoutOut.API/ShoutOut.API.csproj", "ShoutOut.API/"]
-RUN dotnet restore "ShoutOut.API/ShoutOut.API.csproj"
-COPY . .
-WORKDIR "/src/ShoutOut.API"
-RUN dotnet build "ShoutOut.API.csproj" -c Release -o /app/build
+COPY ./ ./
+RUN dotnet publish -c Release -o /app/publish
 
-FROM build AS publish
-RUN dotnet publish "ShoutOut.API.csproj" -c Release -o /app/publish
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ShoutOut.API.dll"]
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS run
+WORKDIR /App
+EXPOSE 80
+EXPOSE 443
+COPY --from=build /app/publish ./
+ENTRYPOINT ["dotnet", "./ShoutOut.API.dll"]
