@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set current date as env variable
+      run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+        
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build ./ShoutOut.API/ --file Dockerfile --tag ShoutOutAPI:$(date +%s)
+      
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v3.0.0
+      with:
+        file: ./ShoutOut.API/Dockerfile
+        tags: latest, $NOW
