@@ -12,16 +12,27 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Set current date as env variable
-      run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
-        
+    steps:     
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build ./ShoutOut.API/ --file Dockerfile --tag ShoutOutAPI:$(date +%s)
       
-    - name: Build and push Docker images
-      uses: docker/build-push-action@v3.0.0
+    - name: Log in to Docker Hub
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
       with:
-        file: ./ShoutOut.API/Dockerfile
-        tags: latest, $NOW
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+      
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+      with:
+        images: hawkinsr/ShoutOut.Api
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+      with:
+        context: ./ShoutOut.Api
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
