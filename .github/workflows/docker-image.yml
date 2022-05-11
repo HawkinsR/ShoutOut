@@ -29,7 +29,7 @@ jobs:
       with:
         context: ./ShoutOut.API/ShoutOut.API/
         push: true
-        tags: hawkinsr/shoutout.api:latest
+        tags: hawkinsr/shoutout.api:${{ github.sha }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -46,4 +46,4 @@ jobs:
         app-name: 'RevatureShoutOut'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6c1fa1c76c9b4ba4875580a81197d2de }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a6e99bd85ab649329cb7e5ced2da249e }}/docker.io/hawkinsr/shoutout.api:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a6e99bd85ab649329cb7e5ced2da249e }}/shoutout.api:${{ github.sha }}'
