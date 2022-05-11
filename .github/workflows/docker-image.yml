@@ -9,7 +9,6 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
 
     steps:     
@@ -28,6 +27,23 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
       with:
-        context:  ./ShoutOut.API/ShoutOut.API/
+        context: ./ShoutOut.API/ShoutOut.API/
         push: true
         tags: hawkinsr/shoutout.api:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'RevatureShoutOut'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6c1fa1c76c9b4ba4875580a81197d2de }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a6e99bd85ab649329cb7e5ced2da249e }}/docker.io/hawkinsr/shoutout.api:${{ github.sha }}'
