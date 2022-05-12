@@ -1,10 +1,17 @@
-name: Docker Image CI
+name: API - Docker Image CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+    paths:
+      - ShoutOut.API/**
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+    paths:
+      - ShoutOut.API/**
+  workflow_dispatch:
 
 jobs:
 

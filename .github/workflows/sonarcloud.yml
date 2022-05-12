@@ -2,9 +2,15 @@ name: SonarCloud analysis
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+    paths:
+      - ShoutOut.API/**
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+    paths:
+      - ShoutOut.API/**
   workflow_dispatch:
 
 permissions:
