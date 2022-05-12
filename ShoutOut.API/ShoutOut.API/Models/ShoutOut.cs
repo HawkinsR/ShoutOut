@@ -5,7 +5,7 @@ namespace ShoutOut.API
     public class ShoutOut
     {
         [Key]
-        public int SOId { get; set; }
+        public int? SOId { get; set; }
         public DateTime SODateTime { get; set; }
         public string SOTitle { get; set; } = string.Empty;
         public string SOComment { get; set; } = string.Empty;

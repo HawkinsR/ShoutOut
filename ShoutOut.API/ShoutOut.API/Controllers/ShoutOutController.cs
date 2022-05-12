@@ -36,6 +36,7 @@ namespace ShoutOut.API.Controllers
         [HttpPost]
         public async Task<ActionResult<List<ShoutOut>>> AddShout(ShoutOut shout)
         {
+            shout.SOId = null;
             _context.Shouts.Add(shout);
             await _context.SaveChangesAsync();
 
