@@ -4,13 +4,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - ShoutOut.API/**
   pull_request:
     branches:
       - main
-    paths:
-      - ShoutOut.API/**
   workflow_dispatch:
 
 permissions:
