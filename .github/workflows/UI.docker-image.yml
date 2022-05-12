@@ -50,7 +50,7 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'RevatureShoutOut'
+        app-name: 'RevatureShoutOuts'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_18e6e6d7b3c847d08c442ded41938996 }}
         images: 'index.docker.io/${{ secrets.DOCKER_USERNAME }}/shoutout.ui:${{ github.sha }}'
