@@ -4,13 +4,13 @@ on:
     branches:
       - main
     paths:
-      - ShoutOut.UI/*
+      - ShoutOut.UI/**
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
       -main
     paths:
-      - ShoutOut.UI/*
+      - ShoutOut.UI/**
 jobs:
   sonarcloud:
     name: SonarCloud
