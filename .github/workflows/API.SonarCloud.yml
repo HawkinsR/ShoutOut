@@ -33,7 +33,7 @@ jobs:
       - name: explore!
         run: |
             pwd
-            ls .\ -a
+            ls .\ 
           
 #       - name: Cache SonarCloud packages
 #         uses: actions/cache@v1
