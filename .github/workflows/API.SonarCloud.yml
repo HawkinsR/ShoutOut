@@ -34,6 +34,8 @@ jobs:
         run: |
             pwd
             ls .\ 
+            rm .\sonar-project.properties
+            ls .\
           
 #       - name: Cache SonarCloud packages
 #         uses: actions/cache@v1
