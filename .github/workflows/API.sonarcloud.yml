@@ -4,8 +4,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - SoutOut.API/**
   pull_request:
     types: [opened, synchronize, reopened]
+    branches:
+      - main
+    paths: 
+      - ShoutOut.API/**
     
 jobs:
 
