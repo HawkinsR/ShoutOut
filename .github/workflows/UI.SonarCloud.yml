@@ -1,4 +1,4 @@
-name: SonarCloud Analysis UI
+name: UI - SonarCloud Analysis
 on:
   push:
     branches:
@@ -11,6 +11,8 @@ on:
       -main
     paths:
       - ShoutOut.UI/**
+  workflow_dispatch:
+  
 jobs:
   sonarcloud:
     name: SonarCloud
