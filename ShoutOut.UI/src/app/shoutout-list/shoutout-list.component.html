@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Shout Outs!</h1>
+    <li *ngFor="let shoutout of shoutouts">
+        <button [class.selected]="shoutout === selectedSO" type="button" (click)="onSelect(shoutout)">
+            <span class="badge">{{shoutout.soDateTime | date: "MM/dd/YY"}}</span>
+            <span class="title">{{shoutout.soTitle}}</span>
+        </button>
+    </li>
+</div>
+
+<app-shoutout-detail [shoutout]="selectedSO"></app-shoutout-detail>

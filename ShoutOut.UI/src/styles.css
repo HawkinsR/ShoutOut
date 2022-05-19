@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Futura', sans-serif;
+}
+
+h1 {
+    margin: auto;
+    margin-left: 2em;
+    font-family: 'Futura', sans-serif;
+    font-size: 2em;
+    color: #000;
+}
+
+
+div {
+    margin: 2em;
+    padding: 0;
+    width: 30em;
+}
+
+button {
+    border-radius: 4px;
+    padding: 0;
+}
+
+button:hover {
+    color: #000;
+    background-color: #b9b9ba;
+    left: .1em;
+  }
+  
+  button:active {
+    background-color: #b9b9ba;
+    color: #000;
+  }
+  
+  button.selected {
+    background-color: #f26925;
+    color: #fff;
+  }
+  
+  button.selected:hover {
+    background-color: #f26925;
+    color: #000;
+  }
+  
+  button.selected:active {
+    background-color: black;
+    color: white;
+  }
