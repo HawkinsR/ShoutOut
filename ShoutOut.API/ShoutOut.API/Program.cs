@@ -3,6 +3,17 @@ using ShoutOut.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options => 
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("htp://revatureshoutouts.azurewebsites.net")
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
+
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<DBContext>(options =>
