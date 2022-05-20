@@ -8,7 +8,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("http://revatureshoutouts.azurewebsites.net")
+            policy.AllowAnyOrigin()
                    .AllowAnyMethod()
                    .AllowAnyHeader();
         });
