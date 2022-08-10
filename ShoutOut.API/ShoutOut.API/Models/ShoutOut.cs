@@ -11,6 +11,6 @@ namespace ShoutOut.API
         public string SOComment { get; set; } = string.Empty;
         public bool SOEdited { get; set; } = false;
         public DateTime SOEditDateTime { get; set; }
-        public decimal UserId { get; set; }
+        public string UserId { get; set; }
     }
 }
