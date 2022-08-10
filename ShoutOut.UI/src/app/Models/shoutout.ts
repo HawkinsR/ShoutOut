@@ -5,5 +5,5 @@ export interface ShoutOut {
     soComment: string;
     soEdited: boolean;
     soEditDateTime: Date;
-    userID: number;
+    userID?: number;
 }

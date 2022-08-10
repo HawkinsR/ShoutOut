@@ -1,0 +1,21 @@
+* {
+    background-color: #474c55;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    display: block;
+    text-align: center;
+    font-size: 12pt;
+    text-decoration: none;
+  }
+  
+  button {
+    margin: 0;
+    padding: 14px 16px;
+    float: right;
+  }
+  
+  button:hover {
+    color: white;
+    background-color: #f26925;
+  }
