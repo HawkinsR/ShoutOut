@@ -12,7 +12,7 @@ using ShoutOut.API.Data;
 namespace ShoutOut.API.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20220810194219_Initial")]
+    [Migration("20220811165358_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

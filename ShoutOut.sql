@@ -1,10 +1,13 @@
 GO
 -- DROP CONSTRAINTS ---------------------------------------------------------
 -- ALTER TABLE Shouts
--- DROP CONSTRAINT PK_Shouts;
+--     DROP CONSTRAINT FK_Shouts_Users;    
+
+-- ALTER TABLE Shouts
+--     DROP CONSTRAINT PK_Shouts;
 
 -- ALTER TABLE Users
--- DROP CONSTRAINT PK_Users;
+--     DROP CONSTRAINT PK_Users;
 
 -- GO
 -- -- DROP TABLES --------------------------------------------------------------
