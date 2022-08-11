@@ -12,5 +12,6 @@ namespace ShoutOut.API
         public bool SOEdited { get; set; } = false;
         public DateTime SOEditDateTime { get; set; }
         public string UserId { get; set; }
+        public User User { get; set; }
     }
 }

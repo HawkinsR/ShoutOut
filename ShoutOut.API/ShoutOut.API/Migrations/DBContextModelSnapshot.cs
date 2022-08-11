@@ -24,11 +24,11 @@ namespace ShoutOut.API.Migrations
 
             modelBuilder.Entity("ShoutOut.API.ShoutOut", b =>
                 {
-                    b.Property<int>("SOId")
+                    b.Property<int?>("SOId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SOId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("SOId"), 1L, 1);
 
                     b.Property<string>("SOComment")
                         .IsRequired()
@@ -47,21 +47,21 @@ namespace ShoutOut.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("SOId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Shouts");
                 });
 
             modelBuilder.Entity("ShoutOut.API.User", b =>
                 {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("UserEmail")
                         .IsRequired()
@@ -71,13 +71,25 @@ namespace ShoutOut.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserPassword")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("ShoutOut.API.ShoutOut", b =>
+                {
+                    b.HasOne("ShoutOut.API.User", "User")
+                        .WithMany("ShoutOuts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ShoutOut.API.User", b =>
+                {
+                    b.Navigation("ShoutOuts");
                 });
 #pragma warning restore 612, 618
         }

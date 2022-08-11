@@ -52,7 +52,6 @@ namespace ShoutOut.API.Controllers
 
             user.UserName = change.UserName;
             user.UserEmail = change.UserEmail;
-            user.UserPassword = change.UserPassword;
 
             await _context.SaveChangesAsync();
 
