@@ -19,7 +19,7 @@ export class CreateShoutoutComponent implements OnInit {
     soComment : 'Shout Out Comment',
     soEdited : false,
     soEditDateTime : new Date(),
-    userID : 0,
+    userID : '',
   };
 
   constructor(public auth: AuthService, private SOService: ShoutoutService) { }
@@ -47,7 +47,13 @@ export class CreateShoutoutComponent implements OnInit {
         soComment : 'Shout Out Comment',
         soEdited : false,
         soEditDateTime : new Date(),
-        userID : this.profile.nickname,
+        userID : this.profile.sub,
+        user : {
+          userId : this.profile.sub,
+          userName : this.profile.name,
+          userEmail : this.profile.email,
+          shoutOuts : [''],
+        },
       };
 
       

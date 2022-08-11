@@ -9,6 +9,6 @@ namespace ShoutOut.API
         public string UserName { get; set; } = string.Empty;
         public string UserEmail { get; set; } = string.Empty;
 
-        public List<ShoutOut> ShoutOuts { get; set; }
+        public List<ShoutOut>? ShoutOuts { get; set; }
     }
 }
