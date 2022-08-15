@@ -48,7 +48,6 @@ namespace ShoutOut.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("SOId");
@@ -78,13 +77,9 @@ namespace ShoutOut.API.Migrations
 
             modelBuilder.Entity("ShoutOut.API.ShoutOut", b =>
                 {
-                    b.HasOne("ShoutOut.API.User", "User")
+                    b.HasOne("ShoutOut.API.User", null)
                         .WithMany("ShoutOuts")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("ShoutOut.API.User", b =>

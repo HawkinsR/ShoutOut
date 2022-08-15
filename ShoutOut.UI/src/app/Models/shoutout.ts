@@ -6,10 +6,4 @@ export interface ShoutOut {
     soEdited: boolean;
     soEditDateTime: Date;
     userID?: string;
-    user?:{
-        userId: string;
-        userName: string;
-        userEmail: string;
-        shoutOuts: [string];
-    };
-}
+};

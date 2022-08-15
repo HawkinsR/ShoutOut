@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
 })
 export class ShoutoutService 
 {
-  private rootUrl = 'https://RevatureShoutOut.azurewebsites.net';
+  private rootUrl = 'https://localhost:7014';
+  // private rootUrl = 'https://RevatureShoutOut.azurewebsites.net';
   constructor(private http: HttpClient) { }
   
   public handleError<T>(operation = 'operation', result?: T) {

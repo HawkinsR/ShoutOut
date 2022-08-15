@@ -8,6 +8,7 @@ import { AuthService } from '@auth0/auth0-angular';
   templateUrl: './create-shoutout.component.html',
   styleUrls: ['./create-shoutout.component.css']
 })
+
 export class CreateShoutoutComponent implements OnInit {
   profileJson: any;
   profile: any;
@@ -48,15 +49,7 @@ export class CreateShoutoutComponent implements OnInit {
         soEdited : false,
         soEditDateTime : new Date(),
         userID : this.profile.sub,
-        user : {
-          userId : this.profile.sub,
-          userName : this.profile.name,
-          userEmail : this.profile.email,
-          shoutOuts : [''],
-        },
-      };
-
-      
-    }
+        };
+    };
   }
 }
