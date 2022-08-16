@@ -27,13 +27,21 @@ namespace ShoutOut.API.Controllers
             var shoutList = new List<DTO_ShoutOut>();
 
             foreach (var shout in dbList)
-            { shoutList.Add(new DTO_ShoutOut(shout.SOId,
-                                                shout.SODateTime,
-                                                shout.SOTitle,
-                                                shout.SOComment,
-                                                shout.SOEdited,
-                                                shout.SOEditDateTime,
-                                                shout.UserId)); }
+            {
+                var user = await  _context.Users.FindAsync(shout.UserId);
+
+                DTO_ShoutOut dto = new DTO_ShoutOut(shout.SOId,
+                                    shout.SODateTime,
+                                    shout.SOTitle,
+                                    shout.SOComment,
+                                    shout.SOEdited,
+                                    shout.SOEditDateTime,
+                                    user.UserName);
+      
+                shoutList.Add(dto);
+            }
+                    
+                    
 
             return Ok(shoutList);
         }
@@ -47,13 +55,16 @@ namespace ShoutOut.API.Controllers
             if (dbShout == null)
                 return BadRequest("ShoutOut not found.");
 
+            var user = await _context.Users.FindAsync(dbShout.UserId);
+
             var shout = new DTO_ShoutOut(dbShout.SOId,
                                             dbShout.SODateTime,
                                             dbShout.SOTitle,
                                             dbShout.SOComment,
                                             dbShout.SOEdited,
                                             dbShout.SOEditDateTime,
-                                            dbShout.UserId);        
+                                            user.UserName);
+
             return Ok(shout);
         }
 
@@ -73,9 +84,6 @@ namespace ShoutOut.API.Controllers
                 await _context.SaveChangesAsync();
             }
             
-
-
-
             var shout = new ShoutOut();
             
             shout.SOId = null;
@@ -85,8 +93,6 @@ namespace ShoutOut.API.Controllers
             shout.SOEdited = DTO_shout.SOEdited;
             shout.SOEditDateTime = DTO_shout.SOEditDateTime;
             shout.UserId = DTO_shout.UserId;
-
-
             
             _context.Shouts.Add(shout);
             await _context.SaveChangesAsync();
@@ -130,13 +136,18 @@ namespace ShoutOut.API.Controllers
             var shoutList = new List<DTO_ShoutOut>();
 
             foreach (var shout in dbList)
-            { shoutList.Add(new DTO_ShoutOut(shout.SOId,
-                                                shout.SODateTime,
-                                                shout.SOTitle,
-                                                shout.SOComment,
-                                                shout.SOEdited,
-                                                shout.SOEditDateTime,
-                                                shout.UserId));
+            {
+                var user = await _context.Users.FindAsync(shout.UserId);
+
+                DTO_ShoutOut dto = new DTO_ShoutOut(shout.SOId,
+                                    shout.SODateTime,
+                                    shout.SOTitle,
+                                    shout.SOComment,
+                                    shout.SOEdited,
+                                    shout.SOEditDateTime,
+                                    user.UserName);
+
+                shoutList.Add(dto);
             }
             return Ok(shoutList);
         }

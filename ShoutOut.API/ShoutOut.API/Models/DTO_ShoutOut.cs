@@ -9,7 +9,6 @@
         public bool SOEdited { get; set; } = false;
         public DateTime SOEditDateTime { get; set; }
         public string UserId { get; set; } = string.Empty;
-        
         public string? UserName { get; set; } = string.Empty;
         public string? UserEmail { get; set; } = string.Empty;
 

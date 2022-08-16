@@ -43,6 +43,6 @@ export class ShoutoutListComponent implements OnInit {
   editShoutOut(event: Event, shoutout: ShoutOut): void
   {
     event.stopPropagation();
-    this.router.navigate(['shoutouts', 'edit', shoutout.soId]);
+    this.router.navigate(['shoutouts', 'edit', shoutout.SOId]);
   }
 }

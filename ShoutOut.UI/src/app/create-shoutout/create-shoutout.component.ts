@@ -14,13 +14,15 @@ export class CreateShoutoutComponent implements OnInit {
   profile: any;
 
   shoutout: ShoutOut = {
-    soId : 0,
-    soDateTime : new Date(),
-    soTitle : 'Shout Out Title',
-    soComment : 'Shout Out Comment',
-    soEdited : false,
-    soEditDateTime : new Date(),
-    userID : '',
+    SOId : 0,
+    SODateTime : new Date(),
+    SOTitle : 'Shout Out Title',
+    SOComment : 'Shout Out Comment',
+    SOEdited : false,
+    SOEditDateTime : new Date(),
+    UserID : '',
+    UserName : '',
+    UserEmail : ''
   };
 
   constructor(public auth: AuthService, private SOService: ShoutoutService) { }
@@ -34,7 +36,7 @@ export class CreateShoutoutComponent implements OnInit {
 
   addShoutOut()
   {
-    let response = confirm(`Are you sure you want to add Shout Out: ${this.shoutout.soTitle}?`).valueOf();
+    let response = confirm(`Are you sure you want to add Shout Out: ${this.shoutout.SOTitle}?`).valueOf();
 
     if (response)
     {
@@ -42,13 +44,15 @@ export class CreateShoutoutComponent implements OnInit {
        .subscribe(() => this.SOService.getShoutOuts());
 
       this.shoutout = {
-        soId : 0,
-        soDateTime : new Date(),
-        soTitle : 'Shout Out Title',
-        soComment : 'Shout Out Comment',
-        soEdited : false,
-        soEditDateTime : new Date(),
-        userID : this.profile.sub,
+        SOId : 0,
+        SODateTime : new Date(),
+        SOTitle : 'Shout Out Title',
+        SOComment : 'Shout Out Comment',
+        SOEdited : false,
+        SOEditDateTime : new Date(),
+        UserID : this.profile.sub,
+        UserName : this.profile.name,
+        UserEmail : this.profile.email,
         };
     };
   }

@@ -1,9 +1,11 @@
 export interface ShoutOut {
-    soId: number;
-    soDateTime: Date;
-    soTitle: string;
-    soComment: string;
-    soEdited: boolean;
-    soEditDateTime: Date;
-    userID?: string;
+    SOId: number;
+    SODateTime: Date;
+    SOTitle: string;
+    SOComment: string;
+    SOEdited: boolean;
+    SOEditDateTime: Date;
+    UserID?: string;
+    UserName?: string;
+    UserEmail?: string;
 };
