@@ -4,6 +4,6 @@
     <h3>{{ shoutout.SOId }} : {{ shoutout.SOTitle }}</h3>
     <p id="CO"> Created On: {{ shoutout.SODateTime | date: "short" }}</p>
     <p>{{ shoutout.SOComment }}</p>
-    <button type="button" (click)="deleteSO($event)" >Delete</button>
-    <button type="button">Edit</button>
+    <button type="button" (click)="deleteSO($event)" *ngIf="auth.isAuthenticated$ | async">Delete</button>
+    <button type="button" *ngIf="auth.isAuthenticated$ | async">Edit</button>
 </div>
