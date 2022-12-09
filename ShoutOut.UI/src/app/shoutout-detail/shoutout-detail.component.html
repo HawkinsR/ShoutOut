@@ -1,9 +1,9 @@
 <div *ngIf="shoutout">
     <h2>Shout Out! Details</h2>
-    <h3>{{ shoutout.userID }}</h3>
-    <h3>{{ shoutout.soId }} : {{ shoutout.soTitle }}</h3>
-    <p id="CO"> Created On: {{ shoutout.soDateTime | date: "short" }}</p>
-    <p>{{ shoutout.soComment }}</p>
+    <h3>{{ shoutout.UserID }}</h3>
+    <h3>{{ shoutout.SOId }} : {{ shoutout.SOTitle }}</h3>
+    <p id="CO"> Created On: {{ shoutout.SODateTime | date: "short" }}</p>
+    <p>{{ shoutout.SOComment }}</p>
     <button type="button" (click)="deleteSO($event)" *ngIf="auth.isAuthenticated$ | async">Delete</button>
     <button type="button" *ngIf="auth.isAuthenticated$ | async">Edit</button>
 </div>
