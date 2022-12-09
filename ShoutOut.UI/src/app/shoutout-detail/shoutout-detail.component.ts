@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ShoutOut } from '../Models/shoutout';
 import { ShoutoutService } from '../Services/shoutout.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-shoutout-detail',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ShoutoutDetailComponent implements OnInit {
 
-  constructor(private SOService: ShoutoutService, private currRoute: ActivatedRoute, private router: Router) { }
+  constructor(private SOService: ShoutoutService, private currRoute: ActivatedRoute, private router: Router, public auth: AuthService) { }
 
   @Input() shoutout?: ShoutOut;
   shoutouts?: ShoutOut[];
