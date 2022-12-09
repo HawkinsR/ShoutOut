@@ -4,13 +4,13 @@
     <p>
         <label for="title">Shout Out Title: </label>
     </p>
-    <input type="text" id="title" [(ngModel)]="shoutout.SOTitle"  placeolder="Title"/>
+    <input type="text" id="title" [(ngModel)]="shoutout.soTitle"  placeolder="Title"/>
     
     <br>
     <p>
         <label for="comment">Shout Out: </label>
     </p>
-    <textarea id="comment" [(ngModel)]="shoutout.SOComment" rows="4" cols="50" placeolder="Shout Out"></textarea>
+    <textarea id="comment" [(ngModel)]="shoutout.soComment" rows="4" cols="50" placeolder="Shout Out"></textarea>
 
     <br>
     <button (click)="addShoutOut()">Add Shout Out</button>

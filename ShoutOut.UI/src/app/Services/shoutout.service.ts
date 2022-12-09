@@ -38,7 +38,7 @@ export class ShoutoutService
 
   public updateShoutOut(shoutout: ShoutOut): Observable<ShoutOut[]>
   {
-    return this.http.put<ShoutOut[]>(this.rootUrl + '/api/ShoutOut/' + shoutout.SOId, shoutout);
+    return this.http.put<ShoutOut[]>(this.rootUrl + '/api/ShoutOut/' + shoutout.soId, shoutout);
   }
 
   public deleteShoutOut(id: number): Observable<ShoutOut[]>

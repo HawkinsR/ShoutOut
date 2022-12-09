@@ -24,11 +24,11 @@ export class ShoutoutDetailComponent implements OnInit {
     event.stopPropagation();
     if (this.shoutout)
     {
-      let response = confirm(`Are you sure you want to delete Shout Out: ${this.shoutout.SOTitle}?`).valueOf();
+      let response = confirm(`Are you sure you want to delete Shout Out: ${this.shoutout.soTitle}?`).valueOf();
       if (response)
       {
-        console.log(this.shoutout.SOId);
-        this.SOService.deleteShoutOut(this.shoutout.SOId)
+        console.log(this.shoutout.soId);
+        this.SOService.deleteShoutOut(this.shoutout.soId)
           .subscribe(() => {this.shoutouts});
       }
     }
